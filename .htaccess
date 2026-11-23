@@ -2,6 +2,24 @@
 RewriteEngine On
 RewriteBase /
 
+# Compatibility for legacy capitalized folders while lowercase routes are deployed.
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^about(?:/(.*))?$ /About/$1 [L,NC]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^blog(?:/(.*))?$ /Blog/$1 [L,NC]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^contact(?:/(.*))?$ /Contact/$1 [L,NC]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^gallery(?:/(.*))?$ /Gallery/$1 [L,NC]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^packages(?:/(.*))?$ /Packages/$1 [L,NC]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^process(?:/(.*))?$ /Process/$1 [L,NC]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^projects(?:/(.*))?$ /Projects/$1 [L,NC]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^services(?:/(.*))?$ /Services/$1 [L,NC]
+
 # Canonical host and protocol.
 RewriteCond %{HTTPS} !=on [OR]
 RewriteCond %{HTTP_HOST} ^www\.sunriseinteriors\.in$ [NC]
