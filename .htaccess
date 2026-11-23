@@ -1,0 +1,67 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+# Canonical host and protocol.
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} ^www\.sunriseinteriors\.in$ [NC]
+RewriteRule ^ https://sunriseinteriors.in%{REQUEST_URI} [R=301,L,NE]
+
+# Legacy page redirects.
+RewriteRule ^(?:index\.html|Home/index\.html)$ / [R=301,L,NC]
+RewriteRule ^(?:About/index\.html|about\.html|about-us\.html)$ /about/ [R=301,L,NC]
+RewriteRule ^(?:Projects/index\.html|projects\.html|projects_\.html)$ /projects/ [R=301,L,NC]
+RewriteRule ^(?:Packages/index\.html|packages\.html)$ /packages/ [R=301,L,NC]
+RewriteRule ^(?:Services/index\.html|services\.html)$ /services/ [R=301,L,NC]
+RewriteRule ^(?:Blog/index\.html|blog\.html)$ /blog/ [R=301,L,NC]
+RewriteRule ^(?:Contact/index\.html|contact-us\.html|book_a_quote\.html|book-a-quote\.html|contact\.html)$ /contact/ [R=301,L,NC]
+RewriteRule ^(?:Process/index\.html|process\.html)$ /process/ [R=301,L,NC]
+RewriteRule ^(?:Gallery/index\.html|image-gallery\.html)$ /gallery/ [R=301,L,NC]
+RewriteRule ^(?:VideoGallery/index\.html|video-gallery\.html)$ /video-gallery/ [R=301,L,NC]
+RewriteRule ^(?:ProjectDetail/index\.html|project_detail\.html)$ /project-detail/ [R=301,L,NC]
+RewriteRule ^(?:BhkInteriorDesignCostBangalore2026/index\.html|2bhk-interior-design-cost-bangalore-2026(?:/index\.html)?|2bhk-interior-design-cost-bangalore-2026\.html)$ /blog/2bhk-interior-design-cost-bangalore-2026/ [R=301,L,NC]
+RewriteRule ^(?:BestInteriorDesignIdeas3bhkFlatsBangalore/index\.html|best-interior-design-ideas-3bhk-flats-bangalore(?:/index\.html)?|best-interior-design-ideas-3bhk-flats-bangalore\.html)$ /blog/best-interior-design-ideas-3bhk-flats-bangalore/ [R=301,L,NC]
+RewriteRule ^(?:modular-kitchen-design-cost-bangalore(?:/index\.html)?|modular-kitchen-design-cost-bangalore\.html)$ /blog/modular-kitchen-design-cost-bangalore/ [R=301,L,NC]
+RewriteRule ^(?:choose-best-interior-designers-bangalore(?:/index\.html)?|choose-best-interior-designers-bangalore\.html)$ /blog/choose-best-interior-designers-bangalore/ [R=301,L,NC]
+RewriteRule ^(?:modern-2bhk-interior-design-ideas-bangalore(?:/index\.html)?|modern-2bhk-interior-design-ideas-bangalore\.html)$ /blog/modern-2bhk-interior-design-ideas-bangalore/ [R=301,L,NC]
+RewriteRule ^(?:3bhk-interior-design-cost-bangalore(?:/index\.html)?|3bhk-interior-design-cost-bangalore\.html)$ /blog/3bhk-interior-design-cost-bangalore/ [R=301,L,NC]
+RewriteRule ^(?:UShapedModularKitchenBangalore/index\.html|u-shaped-modular-kitchen-bangalore\.html)$ /u-shaped-modular-kitchen-bangalore/ [R=301,L,NC]
+RewriteRule ^(?:LShapedModularKitchenBangalore/index\.html|l-shaped-modular-kitchen-bangalore\.html)$ /l-shaped-modular-kitchen-bangalore/ [R=301,L,NC]
+RewriteRule ^(?:ParallelModularKitchenBangalore/index\.html|parallel-modular-kitchen-bangalore\.html)$ /parallel-modular-kitchen-bangalore/ [R=301,L,NC]
+RewriteRule ^(?:StraightAndIslandKitchensBangalore/index\.html|straight-and-island-kitchens-bangalore\.html)$ /straight-and-island-kitchens-bangalore/ [R=301,L,NC]
+RewriteRule ^(?:BedroomInteriorsBangalore/index\.html|bedroom-interiors-bangalore\.html)$ /bedroom-interiors-bangalore/ [R=301,L,NC]
+RewriteRule ^(?:ModularWardrobeBangalore/index\.html|modular-wardrobe\.html|modular-wardrobe-bangalore\.html)$ /modular-wardrobe-bangalore/ [R=301,L,NC]
+RewriteRule ^(?:ModularKitchenBangalore/index\.html|modular-kitchen\.html|modular-kitchen-bangalore\.html)$ /modular-kitchen-bangalore/ [R=301,L,NC]
+RewriteRule ^(?:LivingAndDiningBangalore/index\.html|living-and-dining\.html|living-and-dining-bangalore\.html)$ /living-and-dining-bangalore/ [R=301,L,NC]
+RewriteRule ^(?:HomeInteriors/index\.html|home-interiors\.html)$ /home-interiors/ [R=301,L,NC]
+RewriteRule ^(?:HomeInteriorsBangalore/index\.html|home-interiors-bangalore\.html)$ /home-interiors-bangalore/ [R=301,L,NC]
+RewriteRule ^(?:about-us/?|HomeUs/index\.html|AboutUs/index\.html)$ /about/ [R=301,L,NC]
+RewriteRule ^(?:home-interiors/?|HomeInteriors/index\.html)$ /home-interiors-bangalore/ [R=301,L,NC]
+RewriteRule ^home-interior-designers-vijayanagar\.html$ /home-interior-designers-vijayanagar/ [R=301,L,NC]
+RewriteRule ^home-interior-designers-in-chandra-layout\.html$ /home-interior-designers-in-chandra-layout/ [R=301,L,NC]
+RewriteRule ^home-interior-designers-in-papareddy-palya\.html$ /home-interior-designers-in-papareddy-palya/ [R=301,L,NC]
+RewriteRule ^home-interior-designers-in-nagarbhavi\.html$ /home-interior-designers-in-nagarbhavi/ [R=301,L,NC]
+RewriteRule ^home-interior-designers-in-basaveshwara-nagar\.html$ /home-interior-designers-in-basaveshwara-nagar/ [R=301,L,NC]
+
+# Redirect every remaining */index.html URL to its folder URL.
+RewriteRule ^(.+)/index\.html$ /$1/ [R=301,L,NC]
+
+# 1. 301 Permanent Redirects for Old Indexed Pages (Preserve Google Ranking & Fix Duplicate Content)
+RewriteRule ^sitemap/(home-interior-designers-[^/]+\.html)$ /$1 [R=301,L]
+RewriteRule ^sitemap/?$ /sitemap.xml [R=301,L]
+RewriteRule ^contact-us\.html$ /book_a_quote.html [R=301,L]
+RewriteRule ^contact\.html$ /book_a_quote.html [R=301,L]
+RewriteRule ^about-us\.html$ /about.html [R=301,L]
+RewriteRule ^home-interiors\.html$ /home-interiors-bangalore.html [R=301,L]
+RewriteRule ^modular-kitchen\.html$ /modular-kitchen-bangalore.html [R=301,L]
+RewriteRule ^modular-wardrobe\.html$ /modular-wardrobe-bangalore.html [R=301,L]
+RewriteRule ^living-and-dining\.html$ /living-and-dining-bangalore.html [R=301,L]
+RewriteRule ^projects\.html$ /projects_.html [R=301,L]
+RewriteRule ^book-a-quote\.html$ /book_a_quote.html [R=301,L]
+
+</IfModule>
+
+# Compress text assets; already-compressed images and videos are excluded.
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/json image/svg+xml
+</IfModule>
