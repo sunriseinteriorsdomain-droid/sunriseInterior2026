@@ -21,6 +21,16 @@ document.addEventListener('DOMContentLoaded', () => {
         reviewTrack.appendChild(duplicateReviewGroup);
     }
 
+    const blogTrack = document.querySelector('.blog-marquee-track');
+    const blogGroup = blogTrack && blogTrack.querySelector('.blog-marquee-group');
+
+    if (blogTrack && blogGroup && !blogTrack.querySelector(':scope > .blog-marquee-group[aria-hidden="true"]')) {
+        const duplicateBlogGroup = blogGroup.cloneNode(true);
+        duplicateBlogGroup.setAttribute('aria-hidden', 'true');
+        duplicateBlogGroup.setAttribute('inert', '');
+        blogTrack.appendChild(duplicateBlogGroup);
+    }
+
     function bindDropdown(wrapper) {
         const trigger = wrapper.querySelector('.gallery-menu-trigger');
         const submenuGroups = Array.from(wrapper.querySelectorAll('.services-menu-group'));

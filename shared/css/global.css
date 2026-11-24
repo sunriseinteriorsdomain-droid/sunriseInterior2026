@@ -2514,6 +2514,120 @@ footer a {
   overflow-wrap: anywhere;
 }
 
+.blog-marquee-viewport {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.blog-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 42s linear infinite;
+}
+
+.blog-marquee-group {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: stretch;
+  gap: 16px;
+  padding-right: 16px;
+}
+
+.blog-marquee-group article {
+  flex: 0 0 auto;
+}
+
+.blog-marquee-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: clamp(270px, 30vw, 360px);
+  min-height: 164px;
+  padding: 22px 24px;
+  border: 1px solid rgba(37, 33, 29, 0.12);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(18, 16, 26, 0.04);
+  color: #25211d;
+  text-decoration: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.blog-marquee-card:hover,
+.blog-marquee-card:focus-visible {
+  transform: translateY(-3px);
+  border-color: rgba(209, 127, 48, 0.55);
+  box-shadow: 0 16px 36px rgba(18, 16, 26, 0.1);
+}
+
+.blog-marquee-card:focus-visible {
+  outline: 2px solid #d17f30;
+  outline-offset: 3px;
+}
+
+.blog-marquee-card > span:first-child {
+  color: #9c5e28;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.blog-marquee-card h3 {
+  margin: 14px 0;
+  font-family: "Libre Caslon Text", Georgia, serif;
+  font-size: clamp(19px, 1.7vw, 23px);
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.blog-marquee-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #9c5e28;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.blog-marquee-link span {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.blog-marquee-viewport:hover .blog-marquee-track,
+.blog-marquee-viewport:focus-within .blog-marquee-track {
+  animation-play-state: paused;
+}
+
+@media (max-width: 639px) {
+  .blog-marquee-card {
+    width: min(82vw, 340px);
+    min-height: 154px;
+    padding: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blog-marquee-viewport {
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+
+  .blog-marquee-track {
+    animation: none;
+    transform: none;
+  }
+
+  .blog-marquee-group[aria-hidden="true"] {
+    display: none;
+  }
+}
+
 @media (min-width: 1024px) and (max-width: 1199px) {
   #global-header > div {
     padding-left: 32px !important;
