@@ -152,10 +152,20 @@ main.page-main > .home-hero {
 }
 
 #global-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 50;
+    width: 100%;
     background-color: #1f1b11;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     transition: background-color 0.3s ease;
+}
+
+#global-header > div {
+    height: 96px !important;
 }
 
 #global-header.scrolled {
@@ -268,7 +278,7 @@ body {
     white-space: nowrap;
     display: flex;
     align-items: center;
-    column-gap: clamp(10px, 1.2vw, 18px) !important;
+    column-gap: clamp(14px, 1.3vw, 22px) !important;
   }
 }
 
@@ -2440,30 +2450,43 @@ main svg {
 }
 
 .blog-article-hero .article-hero-actions {
-  margin-top: 12px;
-  gap: 24px;
+  margin-top: 20px;
+  gap: 16px;
 }
 
 .blog-article-hero .article-hero-actions a {
-  min-height: 34px;
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  color: #ff9a45;
-  font-size: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 24px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: #ff7d00;
+  color: #fff;
+  font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0.16em;
-  line-height: 34px;
+  letter-spacing: 0.1em;
+  line-height: 1;
   text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
 }
 
 .blog-article-hero .article-hero-actions a:last-child {
+  border-color: rgba(252, 250, 248, 0.55);
+  background: rgba(18, 16, 26, 0.2);
   color: #fcfaf8;
 }
 
 .blog-article-hero .article-hero-actions a:hover {
-  color: #ff7d00;
+  background: #e96f00;
+  color: #fff;
+}
+
+.blog-article-hero .article-hero-actions a:last-child:hover {
+  border-color: rgba(252, 250, 248, 0.85);
+  background: rgba(252, 250, 248, 0.12);
 }
 
 @media (max-width: 767px) {
@@ -2495,12 +2518,13 @@ main svg {
 
   .blog-article-hero .article-hero-actions {
     margin-top: 14px;
+    gap: 12px;
   }
 
   .blog-article-hero .article-hero-actions a {
-    min-height: 30px;
+    min-height: 42px;
+    padding: 0 18px;
     font-size: 14px;
-    line-height: 30px;
   }
 }
 
