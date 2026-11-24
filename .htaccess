@@ -2,23 +2,31 @@
 RewriteEngine On
 RewriteBase /
 
-# Compatibility for legacy capitalized folders while lowercase routes are deployed.
+# Fall back to legacy capitalized folders only when the lowercase path is absent.
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^about(?:/(.*))?$ /About/$1 [L,NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^about(?:/(.*))?$ /About/$1 [L]
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^blog(?:/(.*))?$ /Blog/$1 [L,NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^blog(?:/(.*))?$ /Blog/$1 [L]
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^contact(?:/(.*))?$ /Contact/$1 [L,NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^contact(?:/(.*))?$ /Contact/$1 [L]
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^gallery(?:/(.*))?$ /Gallery/$1 [L,NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^gallery(?:/(.*))?$ /Gallery/$1 [L]
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^packages(?:/(.*))?$ /Packages/$1 [L,NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^packages(?:/(.*))?$ /Packages/$1 [L]
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^process(?:/(.*))?$ /Process/$1 [L,NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^process(?:/(.*))?$ /Process/$1 [L]
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^projects(?:/(.*))?$ /Projects/$1 [L,NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^projects(?:/(.*))?$ /Projects/$1 [L]
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^services(?:/(.*))?$ /Services/$1 [L,NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^services(?:/(.*))?$ /Services/$1 [L]
 
 # Canonical host and protocol.
 RewriteCond %{HTTPS} !=on [OR]
