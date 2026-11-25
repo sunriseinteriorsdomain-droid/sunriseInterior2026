@@ -63,18 +63,18 @@ RewriteRule ^(?:HomeInteriors/index\.html|home-interiors\.html)$ /home-interiors
 RewriteRule ^(?:HomeInteriorsBangalore/index\.html|home-interiors-bangalore\.html)$ /home-interiors-bangalore/ [R=301,L,NC]
 RewriteRule ^(?:about-us/?|HomeUs/index\.html|AboutUs/index\.html)$ /about/ [R=301,L,NC]
 RewriteRule ^(?:home-interiors/?|HomeInteriors/index\.html)$ /home-interiors-bangalore/ [R=301,L,NC]
-RewriteRule ^home-interior-designers-vijayanagar\.html$ /home-interior-designers-vijayanagar/ [R=301,L,NC]
-RewriteRule ^home-interior-designers-in-chandra-layout\.html$ /home-interior-designers-in-chandra-layout/ [R=301,L,NC]
-RewriteRule ^home-interior-designers-in-papareddy-palya\.html$ /home-interior-designers-in-papareddy-palya/ [R=301,L,NC]
-RewriteRule ^home-interior-designers-in-nagarbhavi\.html$ /home-interior-designers-in-nagarbhavi/ [R=301,L,NC]
-RewriteRule ^home-interior-designers-in-basaveshwara-nagar\.html$ /home-interior-designers-in-basaveshwara-nagar/ [R=301,L,NC]
+RewriteRule ^home-interior-designers-vijayanagar(?:\.html|/index\.html|/)?$ /sitemap/home-interior-designers-vijayanagar/ [R=301,L,NC]
+RewriteRule ^home-interior-designers-in-chandra-layout(?:\.html|/index\.html|/)?$ /sitemap/home-interior-designers-in-chandra-layout/ [R=301,L,NC]
+RewriteRule ^home-interior-designers-in-papareddy-palya(?:\.html|/index\.html|/)?$ /sitemap/home-interior-designers-in-papareddy-palya/ [R=301,L,NC]
+RewriteRule ^home-interior-designers-in-nagarbhavi(?:\.html|/index\.html|/)?$ /sitemap/home-interior-designers-in-nagarbhavi/ [R=301,L,NC]
+RewriteRule ^home-interior-designers-in-basaveshwara-nagar(?:\.html|/index\.html|/)?$ /sitemap/home-interior-designers-in-basaveshwara-nagar/ [R=301,L,NC]
 
 # Redirect every remaining */index.html URL to its folder URL.
 RewriteRule ^(.+)/index\.html$ /$1/ [R=301,L,NC]
 
 # 1. 301 Permanent Redirects for Old Indexed Pages (Preserve Google Ranking & Fix Duplicate Content)
-RewriteRule ^sitemap/(home-interior-designers-[^/]+\.html)$ /$1 [R=301,L]
-RewriteRule ^sitemap/?$ /sitemap.xml [R=301,L]
+RewriteRule ^sitemap/index\.html$ /sitemap/ [R=301,L,NC]
+RewriteRule ^sitemap/(.+)\.html$ /sitemap/$1/ [R=301,L,NC]
 RewriteRule ^contact-us\.html$ /book_a_quote.html [R=301,L]
 RewriteRule ^contact\.html$ /book_a_quote.html [R=301,L]
 RewriteRule ^about-us\.html$ /about.html [R=301,L]
